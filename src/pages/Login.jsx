@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import { createUser } from '../services/userAPI';
 
-import Loading from '../Loading';
+import Loading from '../components/Loading';
 
 class Login extends React.Component {
   constructor() {
@@ -64,6 +64,8 @@ class Login extends React.Component {
       <main>
         { loading ? <Loading /> : (
           <div data-testid="page-login">
+            <h1>TrybeTunes</h1>
+
             <h3>Login</h3>
 
             <label htmlFor="user">
