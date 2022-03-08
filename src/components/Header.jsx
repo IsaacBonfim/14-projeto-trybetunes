@@ -43,19 +43,19 @@ class Header extends React.Component {
                 data-testid="link-to-search"
                 to="/search"
               >
-                Search
+                Pesquisa
               </Link>
               <Link
                 data-testid="link-to-favorites"
                 to="/favorites"
               >
-                Favorites
+                Favoritas
               </Link>
               <Link
                 data-testid="link-to-profile"
                 to="/profile"
               >
-                Profile
+                Perfil
               </Link>
             </nav>
           </>

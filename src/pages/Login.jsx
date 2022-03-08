@@ -23,7 +23,7 @@ class Login extends React.Component {
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { value } = target;
 
     this.setState({
       [name]: value,
@@ -68,16 +68,14 @@ class Login extends React.Component {
 
             <h3>Login</h3>
 
-            <label htmlFor="user">
-              Nome de Usuário
-              <input
-                type="text"
-                name="user"
-                data-testid="login-name-input"
-                value={ user }
-                onChange={ this.handleChange }
-              />
-            </label>
+            <input
+              type="text"
+              name="user"
+              placeholder="Nome de Usuário"
+              data-testid="login-name-input"
+              value={ user }
+              onChange={ this.handleChange }
+            />
 
             <button
               type="button"
