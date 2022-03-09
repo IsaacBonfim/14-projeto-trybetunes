@@ -31,15 +31,27 @@ class MusicCard extends React.Component {
     );
   }
 
-  save(music) {
+  save({ target }, music) {
     this.setState(
       { loading: true },
       async () => {
+        const { favorites } = this.state;
+        const { checked } = target;
+
         await addSong(music);
 
-        this.setState({
-          loading: false,
-        });
+        if (checked === true) {
+          this.setState({
+            favorites: [...favorites, music],
+            loading: false,
+          });
+        } else {
+          this.setState({
+            favorites: [...favorites
+              .filter((favorite) => favorite.trackId !== music.trackId)],
+            loading: false,
+          });
+        }
       },
     );
   }
@@ -66,7 +78,7 @@ class MusicCard extends React.Component {
                 type="checkbox"
                 name="favorite"
                 data-testid={ `checkbox-music-${music.trackId}` }
-                onChange={ () => this.save(music) }
+                onChange={ (e) => this.save(e, music) }
                 checked={ favorites
                   .some(({ trackName }) => music.trackName === trackName) }
               />
