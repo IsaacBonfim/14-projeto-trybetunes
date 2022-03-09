@@ -49,8 +49,6 @@ class Search extends React.Component {
         const { busca } = this.state;
         const result = await searchAlbumsAPI(busca);
 
-        console.log(result);
-
         this.setState({
           artist: busca,
           albuns: [...result],
