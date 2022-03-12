@@ -9,7 +9,8 @@ class MusicCard extends React.Component {
   constructor() {
     super();
 
-    this.save = this.save.bind(this);
+    this.change = this.change.bind(this);
+    this.updateOutFavorites = this.updateOutFavorites.bind(this);
 
     this.state = {
       loading: false,
@@ -31,7 +32,7 @@ class MusicCard extends React.Component {
     );
   }
 
-  save({ target }, music) {
+  change({ target }, music) {
     this.setState(
       { loading: true },
       async () => {
@@ -51,11 +52,24 @@ class MusicCard extends React.Component {
           this.setState({
             favorites: [...favorites
               .filter((favorite) => favorite.trackId !== music.trackId)],
+          });
+
+          await this.updateOutFavorites();
+
+          this.setState({
             loading: false,
           });
         }
       },
     );
+  }
+
+  async updateOutFavorites() {
+    const { outFavorites } = this.props;
+
+    if (typeof outFavorites === 'function') {
+      await outFavorites();
+    }
   }
 
   render() {
@@ -80,7 +94,7 @@ class MusicCard extends React.Component {
                 type="checkbox"
                 name="favorite"
                 data-testid={ `checkbox-music-${music.trackId}` }
-                onChange={ (e) => this.save(e, music) }
+                onChange={ (click) => this.change(click, music) }
                 checked={ favorites
                   .some(({ trackName }) => music.trackName === trackName) }
               />
@@ -99,6 +113,11 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string,
     trackId: PropTypes.number,
   }).isRequired,
+  outFavorites: PropTypes.func,
+};
+
+MusicCard.defaultProps = {
+  outFavorites: null,
 };
 
 export default MusicCard;
