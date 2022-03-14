@@ -5,6 +5,8 @@ import { createUser } from '../services/userAPI';
 
 import Loading from '../components/Loading';
 
+import '../styles/Login.css';
+
 class Login extends React.Component {
   constructor() {
     super();
@@ -63,15 +65,16 @@ class Login extends React.Component {
     return (
       <main>
         { loading ? <Loading /> : (
-          <div data-testid="page-login">
-            <h1>TrybeTunes</h1>
+          <div data-testid="page-login" className="login-container">
+            <h1 className="login-h1">TrybeTunes</h1>
 
-            <h3>Login</h3>
+            <h3 className="login-h3">Login</h3>
 
             <input
               type="text"
               name="user"
               placeholder="Nome de Usuário"
+              className="login-input"
               data-testid="login-name-input"
               value={ user }
               onChange={ this.handleChange }
@@ -80,6 +83,7 @@ class Login extends React.Component {
             <button
               type="button"
               data-testid="login-submit-button"
+              className="login-button"
               disabled={ disableLoginButton }
               onClick={ this.login }
             >

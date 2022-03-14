@@ -5,6 +5,8 @@ import { getUser } from '../services/userAPI';
 
 import Loading from './Loading';
 
+import '../styles/Header.css';
+
 class Header extends React.Component {
   constructor() {
     super();
@@ -31,32 +33,52 @@ class Header extends React.Component {
     const { user, loading } = this.state;
 
     return (
-      <header data-testid="header-component">
+      <header data-testid="header-component" className="header">
         {loading ? <Loading /> : (
           <>
-            <section>
-              <h2>Seja bem vindo ao TrybeTunes</h2>
-              <p data-testid="header-user-name">{user.name}</p>
+            <section className="header-section">
+              <h2 className="header-h2">Bem vindo ao TrybeTunes</h2>
+              <p className="header-user" data-testid="header-user-name">{user.name}</p>
             </section>
-            <nav>
-              <Link
-                data-testid="link-to-search"
-                to="/search"
-              >
-                Pesquisa
-              </Link>
-              <Link
-                data-testid="link-to-favorites"
-                to="/favorites"
-              >
-                Favoritas
-              </Link>
-              <Link
-                data-testid="link-to-profile"
-                to="/profile"
-              >
-                Perfil
-              </Link>
+            <nav className="header-navigation">
+              <ul>
+                <li>
+                  <Link
+                    className="header-link"
+                    data-testid="link-to-search"
+                    to="/search"
+                  >
+                    <span className="header-icon">
+                      <ion-icon name="search-circle-outline" />
+                    </span>
+                    <span className="header-text-nav">Pesquisa</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="header-link"
+                    data-testid="link-to-favorites"
+                    to="/favorites"
+                  >
+                    <span className="header-icon">
+                      <ion-icon name="heart-outline" />
+                    </span>
+                    <span className="header-text-nav">Favoritas</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="header-link"
+                    data-testid="link-to-profile"
+                    to="/profile"
+                  >
+                    <span className="header-icon">
+                      <ion-icon name="person-outline" />
+                    </span>
+                    <span className="header-text-nav">Perfil</span>
+                  </Link>
+                </li>
+              </ul>
             </nav>
           </>
         )}

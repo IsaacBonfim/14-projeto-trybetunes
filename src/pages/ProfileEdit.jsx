@@ -96,7 +96,7 @@ class ProfileEdit extends React.Component {
       image, name, disableButton, save } = this.state;
 
     return (
-      <div data-testid="page-profile">
+      <div data-testid="page-profile-edit">
         <Header />
         { loading ? <Loading /> : (
           <form>
