@@ -5,8 +5,6 @@ import { getUser } from '../services/userAPI';
 
 import Loading from './Loading';
 
-import '../styles/Header.css';
-
 class Header extends React.Component {
   constructor() {
     super();

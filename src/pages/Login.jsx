@@ -5,8 +5,6 @@ import { createUser } from '../services/userAPI';
 
 import Loading from '../components/Loading';
 
-import '../styles/Login.css';
-
 class Login extends React.Component {
   constructor() {
     super();
