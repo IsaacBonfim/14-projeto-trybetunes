@@ -1,0 +1,44 @@
+:root {
+
+  --blue-jeans: rgba(72, 172, 240, 1);
+
+}
+
+.loading-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.loading-text {
+  font-size: 25px;
+}
+
+.loading-effect {
+  animation: load 1.5s linear infinite;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0
+    0 0 3px var(--blue-jeans)
+    inset , 0 0 5px 3px var(--blue-jeans)
+    inset , 0 0 30px 1px var(--blue-jeans);
+  margin: 20px 30px;
+  position: relative;
+  width: 30px;
+}
+
+.loading-effect:before {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: inherit;
+  content: '';
+  margin: 3px;
+  position: absolute;
+  top: 100%;
+  width: 15px;
+}
+
+@keyframes load {
+
+  to { transform: rotate(360deg); }
+}
