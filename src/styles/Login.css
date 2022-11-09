@@ -1,0 +1,136 @@
+:root {
+
+  --blue-jeans: rgba(72, 172, 240, 1);
+
+}
+
+.main-login {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.login-sections-container {
+  border-radius: 20px;
+  box-shadow: 0 0
+    1px white , 0 0
+    2px white , 0 0
+    3px white , 0 0
+    4px white , 0 0
+    5px var(--blue-jeans) , 0 0
+    6px var(--blue-jeans) , 0 0
+    7px var(--blue-jeans) , 0 0
+    30px 5px var(--blue-jeans);
+  display: flex;
+  flex-wrap: wrap;
+  height: 50vh;
+  max-width: 840px;
+  width: 70vw;
+}
+
+.title-section {
+  width: 100%;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+  max-width: 420px;
+  width: 50%;
+}
+
+.login-image {
+  align-self: center;
+  height: 400px;
+  width: 400px;
+}
+
+.login-container {
+  align-items: center;
+  background-color: rgba(72, 172, 240, 0.6);
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 420px;
+  width: 50%;
+}
+
+.login-h1 {
+  color: white;
+  font-family: 'Baloo Tamma 2' , cursive;
+  font-size: 50px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  margin: 0;
+  text-align: center;
+  text-shadow: -1px -1px
+    0 var(--blue-jeans) , 3px 3px
+    0 var(--blue-jeans) , 6px 6px
+    3px white;
+  width: 100%;
+}
+
+.login-h3 {
+  color: white;
+  font-size: 25px;
+  margin: 15px;
+}
+
+.login-input {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 0 2px transparent inset;
+  font-size: 18px;
+  margin: 15px 0;
+  outline: none;
+  padding: 5px;
+}
+
+.login-button {
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  height: 50px;
+  letter-spacing: 2px;
+  margin: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.5s ease;
+  width: 140px;
+  z-index: 1;
+}
+
+.login-button:before {
+  background: white;
+  content: '';
+  display: block;
+  height: 300%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: 0.5s ease;
+  width: 0;
+  z-index: -1;
+}
+
+.login-button:hover:before {
+  height: 400%;
+  width: 115%;
+}
+
+.login-button:hover {
+  color: var(--blue-jeans);
+}
+
+.login-button:disabled {
+  visibility: hidden;
+}

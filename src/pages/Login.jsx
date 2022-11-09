@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-
 import { createUser } from '../services/userAPI';
-
 import Loading from '../components/Loading';
+import LoginImage from '../images/music.svg';
+import '../styles/Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -61,32 +61,38 @@ class Login extends React.Component {
     } = this.state;
 
     return (
-      <main>
+      <main className="main-login">
         { loading ? <Loading /> : (
-          <div data-testid="page-login" className="login-container">
-            <h1 className="login-h1">TrybeTunes</h1>
+          <div className="login-sections-container">
+            <section className="image-section">
+              <img src={ LoginImage } className="login-image" alt="login" />
+            </section>
 
-            <h3 className="login-h3">Login</h3>
+            <section data-testid="page-login" className="login-container">
+              <h1 className="login-h1">TrybeTunes</h1>
 
-            <input
-              type="text"
-              name="user"
-              placeholder="Nome de Usuário"
-              className="login-input"
-              data-testid="login-name-input"
-              value={ user }
-              onChange={ this.handleChange }
-            />
+              <h3 className="login-h3">Login</h3>
 
-            <button
-              type="button"
-              data-testid="login-submit-button"
-              className="login-button"
-              disabled={ disableLoginButton }
-              onClick={ this.login }
-            >
-              Entrar
-            </button>
+              <input
+                type="text"
+                name="user"
+                placeholder="Nome de Usuário"
+                className="login-input"
+                data-testid="login-name-input"
+                value={ user }
+                onChange={ this.handleChange }
+              />
+
+              <button
+                type="button"
+                data-testid="login-submit-button"
+                className="login-button"
+                disabled={ disableLoginButton }
+                onClick={ this.login }
+              >
+                Entrar
+              </button>
+            </section>
           </div>
         )}
         { saved ? <Redirect to="/search" /> : '' }
