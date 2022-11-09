@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
 import Header from '../components/Header';
+import AlbunCard from '../components/AlbunCard';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-
 import Loading from '../components/Loading';
+import '../styles/Search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -67,51 +66,46 @@ class Search extends React.Component {
       <div data-testid="page-search">
         <Header />
         { loading ? <Loading /> : (
-          <>
-            <input
-              type="text"
-              name="busca"
-              placeholder="Pesquisar..."
-              data-testid="search-artist-input"
-              value={ busca }
-              onChange={ this.handleChange }
-            />
+          <main className="search-container">
+            <section className="search-section">
+              <input
+                type="text"
+                name="busca"
+                placeholder="Pesquisar..."
+                className="search-input"
+                data-testid="search-artist-input"
+                value={ busca }
+                onChange={ this.handleChange }
+              />
 
-            <button
-              type="button"
-              data-testid="search-artist-button"
-              disabled={ disableSearchButton }
-              onClick={ this.search }
-            >
-              Pesquisar
-            </button>
+              <button
+                type="button"
+                className="search-button"
+                data-testid="search-artist-button"
+                disabled={ disableSearchButton }
+                onClick={ this.search }
+              >
+                Pesquisar
+              </button>
+            </section>
 
             {artist ? (
-              <>
+              <section className="search-result-section">
                 { albuns.length !== 0 ? (
-                  <div>
+                  <>
                     <h3>{ `Resultado de álbuns de: ${artist}` }</h3>
-                    <div>
+                    <div className="search-result-list">
                       {
                         albuns.map((albun, index) => (
-                          <div key={ index }>
-                            {albun.artistName}
-                            <Link
-                              to={ `/album/${albun.collectionId}` }
-                              data-testid={ `link-to-album-${albun.collectionId}` }
-                            >
-                              {albun.collectionName}
-                            </Link>
-                          </div>
+                          <AlbunCard key={ index } albun={ albun } />
                         ))
                       }
                     </div>
-                  </div>
+                  </>
                 ) : <p>Nenhum álbum foi encontrado</p> }
-                <p />
-              </>
+              </section>
             ) : ''}
-          </>
+          </main>
         ) }
       </div>
     );

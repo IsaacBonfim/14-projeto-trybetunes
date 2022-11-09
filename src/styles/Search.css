@@ -1,0 +1,146 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-section {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-input {
+  border: 1px solid lightgray;
+  font-size: 18px;
+  height: 30px;
+  outline: none;
+  padding: 0 4px;
+  width: 250px;
+}
+
+.search-button {
+  font-size: 18px;
+  height: 30px;
+  margin: 0 12px;
+  width: 120px;
+}
+
+.search-result-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-result-section h3 {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.search-result-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* .search-result-card {
+  align-items: center;
+  border: 1px solid var(--maya-blue);
+  border-radius: 8px;
+  box-shadow: 3px 3px
+    8px rgba(50, 85, 205, 1);
+  display: flex;
+  flex-direction: column;
+  margin: 8px 4px;
+  width: 250px;
+} */
+
+.search-result-card {
+  align-items: center;
+  background: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 284px;
+  margin: 8px;
+  text-align: center;
+  transition: all 0.5s;
+  width: 190px;
+}
+
+.search-result-card:hover {
+  background-color: #4bb8ff;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.623);
+}
+
+.search-result-card .search-albun-blob {
+  background-color: #4bb8ff;
+  border-radius: 0 0 30px 30px;
+  height: 10px;
+  margin: 0 auto;
+  transition: all 0.3s;
+  visibility: visible;
+  width: 75%;
+}
+
+.search-result-card:hover .search-albun-blob {
+  height: 0;
+}
+
+/* .album-image {
+  height: auto;
+  margin: 12px;
+  width: 90%;
+} */
+
+.search-result-card .album-image {
+  align-items: center;
+  background-color: #4bb8ff;
+  border-radius: 50%;
+  display: flex;
+  font-size: 11px;
+  height: 70px;
+  justify-content: center;
+  margin: 30px 10px;
+  transition: all 0.5s;
+  width: 70px;
+}
+
+.search-result-card:hover .album-image {
+  background-color: #f0f0f0;
+  border-radius: 10px 10px 0 0;
+  height: 70%;
+  margin: 0 0 8px;
+  width: 100%;
+  z-index: 99999;
+}
+
+.search-result-card .album-artist-name {
+  font-size: 22px;
+  font-weight: 500;
+  transition: all 0.5s ease-out;
+}
+
+.search-result-card:hover .album-artist-name {
+  color: white;
+}
+
+.search-result-card .album-link {
+  color: transparent;
+  font-size: 16px;
+  margin: 8px 0;
+  text-decoration: none;
+  transition: all 0.5s ease-in;
+  visibility: hidden;
+}
+
+.search-result-card:hover .album-link {
+  color: white;
+  visibility: visible;
+}
