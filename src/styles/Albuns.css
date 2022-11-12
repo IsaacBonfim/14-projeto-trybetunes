@@ -1,0 +1,91 @@
+.albun-title-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.albun-artist {
+  font-size: 25px;
+  padding: 4px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.albun-name {
+  font-size: 30px;
+  padding: 8px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.albun-section-musics {
+  align-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.music-container {
+  align-items: center;
+  display: flex;
+  height: 25%;
+  margin: 1% 0;
+  max-height: 170px;
+}
+
+.albun-music-card {
+  align-content: space-between;
+  border: 1px solid rgba(50, 150, 255, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 0 9px 3px rgba(50, 150, 255, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  height: 80px;
+  justify-content: center;
+  margin: 12px;
+  padding: 0 8px 8px;
+  transition: all 0.8s ease;
+  width: 340px;
+}
+
+.albun-music-card:hover {
+  box-shadow: 0 0 14px 5px rgba(50, 150, 255, 0.6);
+  height: 140px;
+}
+
+.albun-music-card p {
+  background-color: rgba(50, 150, 255, 1);
+  border-radius: 0 0 8px 8px;
+  color: white;
+  padding: 2px 0;
+  text-align: center;
+  transition: all 0.8s ease;
+  width: 85%;
+}
+
+.albun-music-card label {
+  align-items: center;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.albun-music-card audio {
+  border-radius: 35px;
+  height: 0;
+  margin: 8px 0;
+  transition: all 1s ease;
+  width: 95%;
+}
+
+.albun-music-card:hover audio {
+  height: 50px;
+  margin: 8px 0;
+}
+
+.albun-music-card:hover audio::-webkit-media-controls-panel {
+  background-color: rgba(50, 150, 255, 0.4);
+}
