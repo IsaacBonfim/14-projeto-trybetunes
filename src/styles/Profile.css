@@ -1,0 +1,25 @@
+.profile-container {
+  align-items: center;
+  align-self: center;
+  background-color: rgba(50, 155, 255, 0.5);
+  border: 8px double white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 250px 25px 50px 50px 50px;
+  justify-items: start;
+  padding: 50px;
+}
+
+.profile-image {
+  border: 8px double white;
+  border-radius: 50%;
+  box-shadow: 1px 1px
+    8px 3px rgba(50, 155, 255, 0.3) , 1px 1px
+    8px 3px rgba(50, 155, 255, 0.5) , 1px 1px
+    16px 1px black;
+  height: 200px;
+  justify-self: center;
+  width: 200px;
+}
