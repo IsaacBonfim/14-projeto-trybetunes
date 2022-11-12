@@ -75,11 +75,12 @@ class MusicCard extends React.Component {
     const { music } = this.props;
 
     return (
-      <section>
+      <div className="albun-music-card">
         {loading ? <Loading /> : (
           <>
             <p>{ music.trackName }</p>
             <audio
+              className="albun-music"
               data-testid="audio-component"
               src={ music.previewUrl }
               controls
@@ -100,7 +101,7 @@ class MusicCard extends React.Component {
             </label>
           </>
         )}
-      </section>
+      </div>
     );
   }
 }
