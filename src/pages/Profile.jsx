@@ -1,11 +1,9 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
-
 import { getUser } from '../services/userAPI';
-
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import '../styles/Profile.css';
 
 class Profile extends React.Component {
   constructor() {
@@ -35,26 +33,27 @@ class Profile extends React.Component {
     const { loading, user } = this.state;
 
     return (
-      <div data-testid="page-profile">
+      <div data-testid="page-profile" className="page">
         <Header />
         { loading ? <Loading /> : (
-          <div>
+          <div className="profile-container">
             <img
+              className="profile-image"
               data-testid="profile-image"
               src={ user.image }
               alt={ user.name }
             />
             <Link to="/profile/edit">Editar perfil</Link>
             <label htmlFor="userName">
-              Nome
+              <span>Nome</span>
               <p name="userName">{ user.name }</p>
             </label>
             <label htmlFor="userEmail">
-              E-mail
+              <span>E-mail</span>
               <p name="userEmail">{ user.email }</p>
             </label>
             <label htmlFor="userDescription">
-              Descrição
+              <span>Descrição</span>
               <p name="userDescription">{ user.description }</p>
             </label>
           </div>
