@@ -6,7 +6,7 @@
 
 #root {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -27,4 +27,11 @@ code {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
