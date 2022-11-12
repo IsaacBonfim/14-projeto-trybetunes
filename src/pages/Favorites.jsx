@@ -49,18 +49,20 @@ class Favorites extends React.Component {
     const { loading, favorites } = this.state;
 
     return (
-      <div data-testid="page-favorites">
+      <div data-testid="page-favorites" className="page">
         <Header />
 
         { loading ? <Loading /> : (
-          favorites.map((favorite, index) => (
-            <div key={ index }>
-              <MusicCard
-                music={ favorite }
-                outFavorites={ this.updateFavorites }
-              />
-            </div>
-          ))
+          <section className="albun-section-musics">
+            { favorites.map((favorite, index) => (
+              <div key={ index } className="music-container">
+                <MusicCard
+                  music={ favorite }
+                  outFavorites={ this.updateFavorites }
+                />
+              </div>
+            ))}
+          </section>
         )}
       </div>
     );
