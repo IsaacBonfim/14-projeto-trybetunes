@@ -37,12 +37,14 @@
 
 .albun-music-card {
   align-content: space-between;
-  border: 1px solid rgba(50, 150, 255, 0.3);
+  border: 0;
   border-radius: 16px;
-  box-shadow: 0 0 9px 3px rgba(50, 150, 255, 0.2);
+  box-shadow: 3px 3px
+    5px rgba(50, 150, 255, 0.4) , 0 0
+    12px inset rgba(50, 150, 255, 0.4);
   display: flex;
   flex-wrap: wrap;
-  height: 80px;
+  height: 140px;
   justify-content: center;
   margin: 12px;
   padding: 0 8px 8px;
@@ -51,7 +53,7 @@
 }
 
 .albun-music-card:hover {
-  box-shadow: 0 0 14px 5px rgba(50, 150, 255, 0.6);
+  box-shadow: 0 0 9px 3px rgba(50, 150, 255, 0.5);
   height: 140px;
 }
 
@@ -61,31 +63,107 @@
   color: white;
   padding: 2px 0;
   text-align: center;
-  transition: all 0.8s ease;
   width: 85%;
-}
-
-.albun-music-card label {
-  align-items: center;
-  display: flex;
-  height: 20px;
-  justify-content: center;
-  width: 100%;
 }
 
 .albun-music-card audio {
   border-radius: 35px;
-  height: 0;
+  height: 50px;
   margin: 8px 0;
-  transition: all 1s ease;
   width: 95%;
 }
 
-.albun-music-card:hover audio {
-  height: 50px;
-  margin: 8px 0;
+.albun-music-card audio::-webkit-media-controls-panel {
+  background-color: white;
+  border-radius: 35px;
+  box-shadow: 1px 1px
+    8px inset rgba(50, 100, 255, 0.4);
+  transition: all 0.8s ease;
+}
+
+.albun-music-card audio::-webkit-media-controls-play-button {
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px inset rgba(50, 100, 255, 0.4);
+  transition: all 0.8s ease;
+}
+
+.albun-music-card audio::-webkit-media-controls-current-time-display {
+  color: rgba(50, 150, 255, 1);
+  font-weight: 600;
+}
+
+.albun-music-card audio::-webkit-media-controls-time-remaining-display {
+  color: rgba(50, 150, 255, 1);
+  font-weight: 600;
 }
 
 .albun-music-card:hover audio::-webkit-media-controls-panel {
-  background-color: rgba(50, 150, 255, 0.4);
+  background-color: rgba(150, 200, 255, 0.3);
+}
+
+.albun-music-card:hover audio::-webkit-media-controls-play-button {
+  background-color: rgba(50, 100, 255, 0.2);
+  border-radius: 50%;
+}
+
+/* Hide the default Checkbox */
+.albun-checkbox-label {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  width: 100%;
+}
+
+.albun-favorite-checkbox {
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  background: lightblue;
+  background-color: white;
+  border-radius: 100%;
+  box-shadow: 3px 3px
+    5px rgba(150, 200, 255, 1) , -1px -1px
+    5px lightgray;
+  height: 1.1em;
+  left: 0;
+  margin: 0 4px;
+  position: relative;
+  top: 0;
+  transition: 0.5s;
+  width: 1.1em;
+}
+
+.albun-checkbox-label input:checked ~ .checkmark {
+  box-shadow: 2px 2px
+    8px inset rgba(50, 100, 255, 0.7) , -3px -3px
+    5px inset rgba(150, 200, 255, 0.7);
+}
+
+.checkmark:after {
+  content: '';
+  opacity: 0;
+  position: absolute;
+}
+
+.albun-checkbox-label .checkmark:after {
+  border: solid rgba(50, 100, 255, 1);
+  border-width: 0 0.15em 0.15em 0;
+  height: 0.4em;
+  left: 0.4em;
+  top: 0.2em;
+  transform: rotate(45deg);
+  width: 0.15em;
+}
+
+.albun-checkbox-label input:checked ~ .checkmark:after {
+  opacity: 1;
 }

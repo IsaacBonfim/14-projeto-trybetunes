@@ -87,17 +87,26 @@ class MusicCard extends React.Component {
             >
               <track kind="captions" />
             </audio>
-            <label htmlFor={ `favorite-${music.trackId}` }>
+            <label
+              className="albun-checkbox-label"
+              htmlFor={ `favorite-${music.trackId}` }
+            >
               <input
                 id={ `favorite-${music.trackId}` }
                 type="checkbox"
                 name="favorite"
+                className="albun-favorite-checkbox"
                 data-testid={ `checkbox-music-${music.trackId}` }
                 onChange={ (click) => this.change(click, music) }
                 checked={ favorites
                   .some(({ trackName }) => music.trackName === trackName) }
               />
-              Favorita
+              <div className="checkmark" />
+              <span>
+                { favorites
+                  .some(({ trackName }) => music.trackName === trackName)
+                  ? 'Favorita' : 'Favoritar' }
+              </span>
             </label>
           </>
         )}
