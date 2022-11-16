@@ -36,26 +36,43 @@ class Profile extends React.Component {
       <div data-testid="page-profile" className="page">
         <Header />
         { loading ? <Loading /> : (
-          <div className="profile-container">
-            <img
-              className="profile-image"
-              data-testid="profile-image"
-              src={ user.image }
-              alt={ user.name }
-            />
-            <Link to="/profile/edit">Editar perfil</Link>
-            <label htmlFor="userName">
-              <span>Nome</span>
-              <p name="userName">{ user.name }</p>
-            </label>
-            <label htmlFor="userEmail">
-              <span>E-mail</span>
-              <p name="userEmail">{ user.email }</p>
-            </label>
-            <label htmlFor="userDescription">
-              <span>Descrição</span>
-              <p name="userDescription">{ user.description }</p>
-            </label>
+          <div className="teste">
+            <div className="profile-container">
+              <img
+                className="profile-image"
+                data-testid="profile-image"
+                src={ user.image }
+                alt={ user.name }
+              />
+              <Link className="profile-edit" to="/profile/edit">Editar perfil</Link>
+              <label htmlFor="userName" className="profile-input-group">
+                <span className="profile-input-text">Nome</span>
+                <p
+                  name="userName"
+                  className="profile-info"
+                >
+                  { user.name }
+                </p>
+              </label>
+              <label htmlFor="userEmail" className="profile-input-group">
+                <span className="profile-input-text">E-mail</span>
+                <p
+                  name="userEmail"
+                  className="profile-info"
+                >
+                  { user.email }
+                </p>
+              </label>
+              <label htmlFor="userDescription" className="profile-input-group">
+                <span className="profile-input-text">Descrição</span>
+                <p
+                  name="userDescription"
+                  className="profile-info"
+                >
+                  { user.description }
+                </p>
+              </label>
+            </div>
           </div>
         )}
       </div>

@@ -1,5 +1,11 @@
+.teste {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
 .profile-container {
-  align-items: center;
+  align-items: flex-start;
   align-self: center;
   background-color: rgba(50, 155, 255, 0.5);
   border: 8px double white;
@@ -7,12 +13,15 @@
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 250px 25px 50px 50px 50px;
+  grid-template-rows: 250px 40px 60px 60px 90px 50px;
+  height: 80%;
   justify-items: start;
-  padding: 50px;
+  max-width: 500px;
+  padding: 20px 50px 30px;
 }
 
 .profile-image {
+  align-self: center;
   border: 8px double white;
   border-radius: 50%;
   box-shadow: 1px 1px
@@ -22,4 +31,94 @@
   height: 200px;
   justify-self: center;
   width: 200px;
+}
+
+/* teste */
+.profile-input-group {
+  display: flex;
+  flex-wrap: wrap;
+  height: 60px;
+  width: 100%;
+}
+
+.profile-input-text {
+  color: rgba(0, 0, 140, 0.8);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 6px 0;
+  width: 100%;
+}
+
+.profile-edit {
+  align-self: center;
+  background-color: rgba(0, 80, 200, 0.8);
+  border: 4px double white;
+  border-radius: 8px;
+  color: white;
+  justify-self: center;
+  padding: 4px 12px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.profile-edit:hover {
+  background-color: white;
+  border: 4px double rgba(0, 80, 200, 0.8);
+  color: rgba(0, 80, 200, 0.8);
+}
+
+.profile-input, .profile-description {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 3px solid rgba(50, 155, 255, 0.5);
+  border-radius: 5px 5px 0 0;
+  font-size: 18px;
+  height: 30px;
+  outline: none;
+  padding: 4px;
+  transition: all 0.5s ease;
+  width: 100%;
+}
+
+.profile-input:hover, .profile-input:focus {
+  background-color: white;
+  border-bottom: 3px solid rgba(50, 155, 255, 1);
+}
+
+.profile-description {
+  font-size: 16px;
+  height: 60px;
+  resize: none;
+}
+
+.profile-description:hover, .profile-description:focus {
+  background-color: white;
+  border-bottom: 3px solid rgba(50, 155, 255, 1);
+}
+
+.profile-container button {
+  align-self: center;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 2px 2px
+    4px inset rgba(0, 80, 200, 0.8) , -3px -3px
+    4px inset rgba(50, 150, 255, 0.8) , 2px 2px
+    6px rgba(0, 80, 255, 0.8);
+  justify-self: center;
+  margin-top: 12px;
+  padding: 6px 12px;
+  transition: all 0.5s ease;
+  width: 100px;
+}
+
+.profile-container button:hover {
+  box-shadow: 1px 1px
+    3px inset rgba(0, 80, 200, 0.8) , -2px -2px
+    3px inset rgba(50, 150, 255, 0.8) , 0 0
+    6px rgba(0, 80, 255, 0.8);
+  color: blue;
+}
+
+.profile-container button:disabled {
+  display: none;
 }

@@ -1,9 +1,6 @@
 import React from 'react';
-
 import { Redirect } from 'react-router-dom';
-
 import { getUser, updateUser } from '../services/userAPI';
-
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 
@@ -96,61 +93,70 @@ class ProfileEdit extends React.Component {
       image, name, disableButton, save } = this.state;
 
     return (
-      <div data-testid="page-profile-edit">
+      <div data-testid="page-profile-edit" className="page">
         <Header />
         { loading ? <Loading /> : (
-          <form>
-            <img
-              data-testid="profile-image"
-              src={ image }
-              alt={ name }
-            />
-            <input
-              name="image"
-              value={ image }
-              placeholder="Informe um o caminho para uma nova imagem"
-              data-testid="edit-input-image"
-              onChange={ this.handleChange }
-            />
-            <label htmlFor="userName">
-              Nome
+          <div className="teste">
+            <form className="profile-container">
+              <img
+                className="profile-image"
+                data-testid="profile-image"
+                src={ image }
+                alt={ name }
+              />
               <input
-                type="text"
-                name="name"
-                value={ name }
-                data-testid="edit-input-name"
+                name="image"
+                className="profile-input"
+                value={ image }
+                placeholder="Informe um o caminho para uma nova imagem"
+                data-testid="edit-input-image"
                 onChange={ this.handleChange }
               />
-            </label>
-            <label htmlFor="userEmail">
-              E-mail
-              <input
-                type="email"
-                name="email"
-                value={ email }
-                required
-                data-testid="edit-input-email"
-                onChange={ this.handleChange }
-              />
-            </label>
-            <label htmlFor="userDescription">
-              Descrição
-              <textarea
-                name="description"
-                value={ description }
-                data-testid="edit-input-description"
-                onChange={ this.handleChange }
-              />
-            </label>
-            <button
-              type="button"
-              data-testid="edit-button-save"
-              disabled={ disableButton }
-              onClick={ this.updateProfile }
-            >
-              Salvar
-            </button>
-          </form>
+              <label htmlFor="userName" className="profile-input-group">
+                <span className="profile-input-text">Nome</span>
+                <input
+                  type="text"
+                  name="name"
+                  autoComplete="off"
+                  className="profile-input"
+                  value={ name }
+                  data-testid="edit-input-name"
+                  onChange={ this.handleChange }
+                />
+              </label>
+              <label htmlFor="userEmail" className="profile-input-group">
+                <span className="profile-input-text">E-mail</span>
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="off"
+                  className="profile-input"
+                  value={ email }
+                  required
+                  data-testid="edit-input-email"
+                  onChange={ this.handleChange }
+                />
+              </label>
+              <label htmlFor="userDescription" className="profile-input-group">
+                <span className="profile-input-text">Descrição</span>
+                <textarea
+                  name="description"
+                  className="profile-description"
+                  value={ description }
+                  data-testid="edit-input-description"
+                  onChange={ this.handleChange }
+                />
+              </label>
+              <button
+                type="button"
+                data-testid="edit-button-save"
+                disabled={ disableButton }
+                onClick={ this.updateProfile }
+              >
+                Salvar
+              </button>
+            </form>
+          </div>
         )}
         { save && <Redirect to="/profile" /> }
       </div>
