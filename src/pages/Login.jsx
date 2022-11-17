@@ -76,6 +76,7 @@ class Login extends React.Component {
               <input
                 type="text"
                 name="user"
+                autoComplete="off"
                 placeholder="Nome de Usuário"
                 className="login-input"
                 data-testid="login-name-input"

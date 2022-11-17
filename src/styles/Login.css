@@ -103,7 +103,7 @@
   margin: 15px;
   overflow: hidden;
   position: relative;
-  transition: 0.5s ease;
+  transition: all 0.5s ease;
   width: 140px;
   z-index: 1;
 }
@@ -132,5 +132,5 @@
 }
 
 .login-button:disabled {
-  visibility: hidden;
+  opacity: 0;
 }
